@@ -3,6 +3,10 @@
 
 import praw
 
-reddit = praw.Reddit('bot1')
+reddit = praw.Reddit(client_id= ':^)',
+    client_secret= ':^)',
+    password= ':^)',
+    user_agent= 'Bad Jokes',
+    username= 'Bad-Joke-Bot')
 
-print(reddit.read_only)
+print(reddit.user.me())
