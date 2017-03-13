@@ -6,12 +6,11 @@ import pdb
 import re
 import os
 
-reddit = praw.Reddit('bot1')
+
 
 if not os.path.isfile("posts_replied_to.txt"):
     posts_replied_to = []
 
-# If we have run the code before, load the list of posts we have replied to
 else:
     # Read the file into a list and remove any empty values
     with open("posts_replied_to.txt", "r") as f:
@@ -19,18 +18,18 @@ else:
         posts_replied_to = posts_replied_to.split("\n")
         posts_replied_to = list(filter(None, posts_replied_to))
 
-# Get the top 5 values from our subreddit
+# Get the subreddit
 subreddit = reddit.subreddit('HackBUBotTest')
 for submission in subreddit.hot(limit=10):
-    #print(submission.title)
 
-    # If we haven't replied to this post before
+    # If new post
     if submission.id not in posts_replied_to:
 
-        # Do a case insensitive search
-        if re.search("i love python", submission.title, re.IGNORECASE):
+        # Caps ignored, can be within a word
+        if re.search("ITGOES", submission.title, re.IGNORECASE):
             # Reply to the post
-            submission.reply("<><")
+            submission.reply("GUILLOTINE...YUH")
+            #YUH
             print("Bot replying to : ", submission.title)
 
             # Store the current id into our list
