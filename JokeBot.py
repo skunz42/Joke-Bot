@@ -8,7 +8,7 @@ import os
 
 r = praw.Reddit(client_id= '47amL0AVjU1x0Q',
     client_secret= 'xXlREmF82q0ARucmF7ay8stZihY',
-    password= 'PoopMice69',
+    password= '',
     user_agent= 'Bad Jokes',
     username= 'Bad-Joke-Bot')
 
